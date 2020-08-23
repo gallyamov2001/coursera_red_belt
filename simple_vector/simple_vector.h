@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdlib>
+#include <algorithm>
 
 using namespace std;
 
@@ -16,7 +17,7 @@ public:
     explicit SimpleVector(size_t size){
         end_ = data + size;
         size_is = size;
-        capa_is = size_is * 2;
+        capa_is = size_is;
         data = new T[capa_is];
         end_ = data + size_is;
 
@@ -51,7 +52,7 @@ public:
                 capa_is *= 2;
             }
             else {
-                capa_is = 2;
+                capa_is = 1;
             }
 
             T* ptr = new T[capa_is];
@@ -76,4 +77,3 @@ private:
     size_t size_is;
     size_t capa_is;
 };
-
